@@ -1,0 +1,30 @@
+.customer {
+  &__form {
+    background: #f7f7f7;
+    border: 1px solid #DDD;
+    margin: 0 0 .75em;
+    padding: 1.5em;
+  }
+
+  &__required {
+    margin-left: 3px;
+    padding-bottom: 5px;
+    font-size: 11px;
+  }
+
+  &__error {
+    margin-top: 25px;
+    border: 3px solid #f59999;
+    background-color: white;
+    display: block;
+    padding: 10px 10px;
+  }
+
+  &__success {
+    margin-top: 25px;
+    border: 3px solid #52f577;
+    background-color: white;
+    display: block;
+    padding: 10px 10px;
+  }
+}

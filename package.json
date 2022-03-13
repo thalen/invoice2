@@ -1,0 +1,50 @@
+{
+  "name": "invoicer2",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "tsc",
+    "db": "mongod --dbpath data/db",
+    "api": "./node_modules/nodemon/bin/nodemon.js",
+    "startApi": "ts-node src/api/index_dev.ts",
+    "dev": "concurrently --kill-others \"yarn db\" \"yarn api\"",
+    "postinstall": "npm run build"
+  },
+  "dependencies": {
+    "@types/mongoose": "5.11.96",
+    "@types/node": "^17.0.21",
+    "@types/restify": "^8.5.4",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.2",
+    "date-fns": "^2.28.0",
+    "dotenv": "^16.0.0",
+    "express": "4.17.3",
+    "express-handlebars": "3.0.0",
+    "html-pdf": "3.0.1",
+    "jsonwebtoken": "^8.5.1",
+    "marked": "^4.0.12",
+    "moment": "^2.29.1",
+    "mongoose": "6.2.6",
+    "mongoose-string-query": "0.2.7",
+    "mongoose-timestamp": "0.6.0",
+    "morgan": "^1.10.0",
+    "numeral": "2.0.6",
+    "promise": "8.0.2",
+    "redis": "2.8.0",
+    "restify": "8.6.1",
+    "restify-errors": "8.0.2",
+    "restify-plugins": "1.6.0",
+    "typescript": "^4.6.2"
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "nodemon": "^2.0.15",
+    "ts-node": "10.7.0"
+  },
+  "engines": {
+    "node": "16.8.0"
+  }
+}
