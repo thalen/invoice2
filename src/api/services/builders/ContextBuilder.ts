@@ -11,11 +11,13 @@ const withOcr = ocr => context => ({
 const withInputParams = (inputParams: InvoiceRequest, rate: Number) => context => {
     const hours = numeral(inputParams.hours);
     const price = numeral(rate);
-    const amount = (hours.value() * price.value()).toString() + ',00';
+    const amount = ((hours.value() * price.value()) + inputParams.extraAmount).toString() + ',00';
+    const extraAmount = inputParams.extraAmount + ',00';
     return {
         ...context,
         hours: hours.value(),
         amount,
+        extraAmount,
         invoiceDate: moment().format('YYYY-MM-DD'),
         dueDate: inputParams.dueDate,
         invoiceMonth: inputParams.invoiceMonth
