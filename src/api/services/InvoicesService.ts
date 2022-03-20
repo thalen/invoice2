@@ -70,7 +70,8 @@ const previewInvoice2 : RestService = {
         invoiceRenderer.createPdf({
             hours: req.body.hours,
             dueDate: req.body.dueDate,
-            invoiceMonth: req.body.invoiceMonth
+            invoiceMonth: req.body.invoiceMonth,
+            extraAmount: req.body.extraAmount
         }, customer, invoiceMeta.invoices.valueOf() + 1)
             .then(result => res.json(result))
             .catch(error => {

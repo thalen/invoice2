@@ -11,7 +11,8 @@ const withOcr = ocr => context => ({
 const withInputParams = (inputParams: InvoiceRequest, rate: Number) => context => {
     const hours = numeral(inputParams.hours);
     const price = numeral(rate);
-    const amount = ((hours.value() * price.value()) + inputParams.extraAmount).toString() + ',00';
+    const extra = numeral(inputParams.extraAmount);
+    const amount = ((hours.value() * price.value()) + extra.value()).toString() + ',00';
     const extraAmount = inputParams.extraAmount + ',00';
     return {
         ...context,
