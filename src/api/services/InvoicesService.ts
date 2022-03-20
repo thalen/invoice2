@@ -65,7 +65,15 @@ const previewInvoice : RestService = {
 
 const previewInvoice2 : RestService = {
     execute: async (req: Request, res: Response) => {
-        res.json({hej: 'foo'});
+        const customer = await Customer.findById(req.params.customerId).exec();
+        const invoiceMeta = await Invoice.findOne({customerId: req.params.customerId}).exec();
+        invoiceRenderer.createPdf({
+            hours: req.body.hours,
+            dueDate: req.body.dueDate,
+            invoiceMonth: req.body.invoiceMonth
+        }, customer, invoiceMeta.invoices.valueOf() + 1)
+            .then(result => res.json(result))
+            .catch(error => res.json(error));
     }
 };
 

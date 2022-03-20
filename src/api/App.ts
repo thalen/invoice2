@@ -95,7 +95,7 @@ export default function() {
 
     server.post(`${api}/customer/:customerId/invoice/preview`, verifyAuthentication, callbackWith(previewInvoice));
 
-    server.get(`${api}/customer/:customerId/invoice/preview2`, verifyAuthentication2, callbackWith(previewInvoice2));
+    server.post(`${api}/customer/:customerId/invoice/preview2`, verifyAuthentication2, callbackWith(previewInvoice2));
 
     server.get(`${api}/customers`, verifyAuthentication, callbackWith(getCustomers));
 
