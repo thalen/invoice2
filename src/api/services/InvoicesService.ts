@@ -73,7 +73,10 @@ const previewInvoice2 : RestService = {
             invoiceMonth: req.body.invoiceMonth
         }, customer, invoiceMeta.invoices.valueOf() + 1)
             .then(result => res.json(result))
-            .catch(error => res.json(error));
+            .catch(error => {
+                console.log('error', error);
+                res.status(500);
+            });
     }
 };
 
