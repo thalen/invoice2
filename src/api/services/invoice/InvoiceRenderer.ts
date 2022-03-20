@@ -21,7 +21,7 @@ const toPdf = (html, options) => {
     let filepath = `./dist/assets/invoices/invoice_${timestamp}.pdf`;
     return new Promise((resolve) => {
         pdf.create(html, options).toFile(filepath, function(err) {
-            console.log("pdf created");
+            console.log("pdf created: " + filepath);
             if (err) {
                 console.log(err);
             }
@@ -53,6 +53,7 @@ const invoiceRenderer = {
             };
 
             const link = await toPdf(html, options);
+            console.log('link:', link);
             return {
                 success: true,
                 filepath: link,
