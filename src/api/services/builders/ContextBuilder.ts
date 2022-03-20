@@ -13,7 +13,7 @@ const withInputParams = (inputParams: InvoiceRequest, rate: Number) => context =
     const price = numeral(rate);
     const extra = numeral(inputParams.extraAmount);
     const amount = (hours.value() * price.value()).toString() + ',00';
-    const amount2 = ((hours.value() + price.value()) + extra.value()).toString() + ',00';
+    const amount2 = ((hours.value() * price.value()) + extra.value()).toString() + ',00';
     const extraAmount = inputParams.extraAmount + ',00';
     return {
         ...context,
